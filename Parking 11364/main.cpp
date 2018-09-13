@@ -6,36 +6,28 @@
  */
 
 #include <iostream>
-#include <vector>
+#include <stdio.h>
 
 using namespace std;
 
 int main(int argc, char** argv) {
-    int t, nStores, pos;
-    vector<int> posArr;
+    int t, stores, pos, temp, min, max;
     cin >> t;
-    
-    
-//    posArr.assign(4,0);
-    posArr.resize(4);
-    
-
-    
-    for(int i = 0; i < t; i++) {
-        cin >> nStores;
-        posArr.resize(nStores); 
-        for(int i = 0; i < nStores; i++){
-            cin >> pos;
-            posArr[i] = pos;
+    while(t--){
+        cin >> stores;
+        min = 1000;
+        max = 0;
+        for(int i = 0; i < stores; i++) {
+            
+            scanf("%d", &temp);
+            if (temp < min)
+                min = temp;
+            if (temp > max)
+                max = temp;
         }
-        
-        for(int i = 0; i < posArr.size(); i++) {
-            cout << posArr[i] << endl;
-        }
-        
-//        for (auto const &element: posArr)
-//            std::cout << element << ' ';
+        printf("%d\n", (max - min) * 2);
     }
+    
     return 0;
 }
 
